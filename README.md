@@ -18,6 +18,55 @@ This approach applies reward compensation to facilitate effective transfer learn
 This approach leverages the interplay between reward compensation and policy adaptation, using the dynamics of both robots to optimize learning transfer. By adjusting the reward structure, we facilitate a more seamless integration of learned behaviors and skills across different robots and tasks, even when their operational environments and inherent capabilities significantly differ.
 
 
+## Concept of Reward Transfer
+
+The central idea of reward transfer is to adjust the reward signals in the learning environment of a target system (robot or agent) based on the reward structures experienced by a source system. This adjustment compensates for differences in task specifics, dynamics, or capacities between the systems. The ultimate goal is to make the target system learn more effectively by mimicking the conditions under which the source system succeeded, despite the differences in their operational environments.
+
+## Steps in Reward Transfer
+
+### Modeling Reward Structures
+
+Initially, the reward functions for both the source and target robots are modeled. This involves defining what constitutes a reward in each task and understanding the metrics for success in each environment.
+
+### Collecting Data
+
+The source robot performs its task, during which data about its actions, the states it experiences, and the rewards it receives are collected. Similarly, data is also gathered from the target robot attempting its task under its initial reward structure.
+
+### Analyzing Reward Data
+
+This data is analyzed to identify patterns, such as which actions lead to high rewards in the source task and how these actions correlate with the states encountered by the source robot.
+
+### Calculating Reward Compensation
+
+Based on the analysis, a reward compensation factor or function is calculated. This factor aims to bridge the gap between the reward structures of the two robots. For instance, if the source robot receives high rewards for a specific action under certain conditions, the reward function for the target robot is adjusted to reflect similar rewards for similar actions under comparable conditions, adjusted for the specifics of the target's task and dynamics.
+
+### Applying Reward Compensation
+
+The adjusted reward function is then applied to the target robot’s learning algorithm. This modified reward function encourages the target robot to adopt strategies and behaviors that were successful for the source robot.
+
+### Iterative Optimization
+
+The target robot’s learning process continues, using the adjusted reward function. Its performance and learning efficiency are monitored, and further adjustments to the reward compensation might be made based on ongoing performance data.
+
+### Convergence and Stabilization
+
+The process iterates until the learning curve of the target robot stabilizes, indicating that it has adapted successful strategies from the source robot and is performing optimally under its new reward structure.
+
+## Practical Considerations
+
+### Alignment of Tasks
+
+The more aligned the tasks of the source and target robots, the more directly applicable the reward adjustments will be. Differences in task nature might require more complex transformations of the reward function.
+
+### Dynamic Adjustments
+
+If the robots have different capabilities or operate in differing environments, the reward compensation must consider these factors to avoid unrealistic expectations or ineffective behaviors.
+
+### Monitoring and Feedback
+
+Continuous monitoring is essential to ensure that the reward adjustments lead to desired learning outcomes. Feedback from the target system's performance helps refine the reward compensation further.
+
+Through reward transfer, the target robot can potentially skip the costly and time-consuming trial-and-error phases that the source robot underwent, accelerating its learning process and enhancing its performance on tasks by leveraging pre-learned adaptations from another context. This approach is especially beneficial in complex robotic applications where designing effective reward systems from scratch can be challenging.
 
 
 
